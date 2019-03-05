@@ -1,0 +1,24 @@
+<div class="container main-container animated fadeIn fast" *ngIf="pelicula">
+    <h1>{{pelicula.original_title}}</h1>
+    <div class="row">
+        <div class="col-md-5">
+            <img class="img-thumbnail img-fluid" [src]="pelicula | images:true" [alt]="pelicula.original_title">
+        </div>
+        <div class="col-md-7">
+            <h3>Sinopsis</h3>
+            <hr>
+            <p class="text-justify">
+                {{pelicula.overview}}
+            </p>
+            <h4>Frase Celebre</h4>
+            <p>
+                {{pelicula.tagline}}
+            </p>
+            <p>
+                Popularidad: <span class="badge badge-success">{{pelicula.popularity | number:'.0-0'}}%</span>
+                <br> Votos promedio: <span class="badge badge-warning">{{pelicula.vote_average}}</span>
+            </p>
+            <button [routerLink]="['/'+returnTo, busqueda]" class="puntero btn btn-outline-danger">Regresar</button>
+        </div>
+    </div>
+</div>

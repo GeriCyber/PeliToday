@@ -1,0 +1,32 @@
+<div class="container-fluid h-100 d-flex justify-content-center align-items-center"
+    *ngIf="loading">
+  <img class="img-loader" src="../../../assets/loading.gif" >
+</div>
+
+<div class="section-about" *ngIf="!loading">
+  <div class="container">
+    <div class="row app-align-center">
+
+      <div class="col-sm-5 hidden-sm-down">
+        <img src="../../../assets/popcorn.jpg" width="450">
+      </div>
+
+      <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0">
+        <h6 class="text-muted text-uppercase">Lorem Ipsum</h6>
+        <h3>Make informed decisions with historical &amp; real time data.</h3>
+        <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, tenetur velit ex adipisci eaque vero natus dolorum facilis, consectetur dolor tempore voluptas inventore modi, temporibus soluta ullam pariatur molestias labore.</p>
+        <div class="row hidden-md-down">
+          <div class="col-sm-6 mb-3">
+            <h5>Data frequency</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur.</p>
+          </div>
+          <div class="col-sm-6">
+            <h5>Reliability &amp; uptime</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,13 +1,20 @@
-<div class="jumbotron">
-    <h1 class="display-4">Peliculas App</h1>
-    <p class="lead">Movie Apps!</p>
+<div class="container-fluid head text-center">
+  <div class="container d-flex flex-column justify-content-center h-100">
+      <h1 class="title">Peli<mark>Today</mark></h1>
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+              <p class="text-center py-3 h5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <a class="btn btn-info btn-lg" href="#cartelera">Ver pelis en cartelera</a>
+            </div>
+        </div>
+      </div>
 </div>
 
-<div class="container">
+<div class="container mb-5">
     <br>
-
-    <app-galeria [peliculas]="cartelera | slice:0:6" titulo="Peliculas en cartelera"></app-galeria>
+    <app-galeria id="cartelera" [peliculas]="cartelera | slice:0:6" titulo="Peliculas en cartelera"></app-galeria>
     <app-galeria [peliculas]="populares | slice:0:6" titulo="Peliculas populares"></app-galeria>
     <app-galeria [peliculas]="kids | slice:0:6" titulo="Peliculas populares para niños"></app-galeria>
 
 </div>
+

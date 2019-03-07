@@ -1,5 +1,9 @@
-<div class="container main-container animated fadeIn fast" *ngIf="pelicula">
-    <h1>{{pelicula.original_title}}</h1>
+<div class="container-fluid d-flex justify-content-center align-items-center" *ngIf="!pelicula">
+    <img class="img-loader" src="../../../assets/loading.gif" >
+</div>
+
+<div class="m-100 container main-container animated fadeIn fast my-5" *ngIf="pelicula">
+    <h1 class="my-3">{{pelicula.original_title}}</h1>
     <div class="row">
         <div class="col-md-5">
             <img class="img-thumbnail img-fluid" [src]="pelicula | images:true" [alt]="pelicula.original_title">
@@ -10,15 +14,15 @@
             <p class="text-justify">
                 {{pelicula.overview}}
             </p>
-            <h4>Frase Celebre</h4>
-            <p>
+            <h4 *ngIf="pelicula.tagline">Frase Celebre</h4>
+            <p *ngIf="pelicula.tagline">
                 {{pelicula.tagline}}
             </p>
-            <p>
+            <p class="mb-3">
                 Popularidad: <span class="badge badge-success">{{pelicula.popularity | number:'.0-0'}}%</span>
                 <br> Votos promedio: <span class="badge badge-warning">{{pelicula.vote_average}}</span>
             </p>
-            <button [routerLink]="['/'+returnTo, busqueda]" class="puntero btn btn-outline-danger">Regresar</button>
+            <button [routerLink]="['/'+returnTo, busqueda]" class="puntero btn btn-danger">Regresar</button>
         </div>
     </div>
 </div>

@@ -7,8 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  navbarChange: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.router.events.subscribe((url: any) => {
+      if (this.router.url === '/home') {
+        this.navbarChange = true;
+      } else {
+        this.navbarChange = false;
+      }
+    });
+  }
 
   ngOnInit() {
   }
@@ -17,7 +26,7 @@ export class NavbarComponent implements OnInit {
     if (text.length === 0) {
       return;
     }
-    this.router.navigate(['buscar', text])
+    this.router.navigate(['buscar', text]);
   }
 
 }

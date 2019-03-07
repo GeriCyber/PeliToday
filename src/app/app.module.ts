@@ -11,7 +11,9 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { ImagesPipe } from './pipes/images.pipe';
 import { GaleriaComponent } from './components/home/galeria.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FormsModule } from '@angular/forms'
     PeliculaComponent,
     BuscarComponent,
     ImagesPipe,
-    GaleriaComponent
+    GaleriaComponent,
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

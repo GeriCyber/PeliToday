@@ -1,22 +1,28 @@
 <div class="container main-container animated fadeIn fast">
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-md-12">
             <div class="form-group">
-                <label>Buscar</label>
+                <label class="mt-5 h3">Buscar</label>
                 <input class="form-control" type="text" name="buscar" placeholder="Buscar pelicula" [(ngModel)]="buscar" (keyup.enter)="buscarPelicula()">
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="container-fluid d-flex justify-content-center align-items-center" *ngIf="loading">
+        <img class="img-loader" src="../../../assets/loading.gif" >
+    </div>
+
+    <div class="row my-5" *ngIf="!loading">
         <div class="card-columns">
             <div class="card" *ngFor="let pelicula of ps.peliculas">
                 <img [src]="pelicula | images" class="card-img-top" [alt]="pelicula.original_title">
                 <div class="card-body">
                     <h5 class="card-title">{{pelicula.original_title}}</h5>
                     <p class="card-text">{{pelicula.overview | slice:0:200}}</p>
-                    <button [routerLink]="['/pelicula', pelicula.id, 'buscar', buscar]" class="puntero btn btn-block btn-outline-dark">Ver mas...</button>
+                    <button [routerLink]="['/pelicula', pelicula.id, 'buscar', buscar]" class="puntero btn btn-block btn-info-dark">Ver mas</button>
                 </div>
             </div>
         </div>
+        <!-- <h3 *ngIf="ps.peliculas.length===0">No existen resultados para la busqueda!</h3> -->
     </div>
+  </div>

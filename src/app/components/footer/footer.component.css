@@ -1,0 +1,17 @@
+.footer-section {
+  background: #000;
+  padding: 15px 0px 5px 0px;
+  color: #f8f8f8;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-section p {
+  font-size: 14px;
+}
+
+.footer-section a {
+  color: #ffffff;
+}
+

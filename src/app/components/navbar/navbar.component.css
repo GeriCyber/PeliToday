@@ -1,0 +1,24 @@
+.bg-dark {
+  background-color: #00000036 !important;
+}
+.bg-change {
+  background-color: #000;
+}
+.navbar {
+  padding: 20px 50px;
+}
+
+.nav-link {
+  font-weight: 600;
+  margin-right: 20px;
+}
+.navbar-brand {
+  letter-spacing: 3px;
+}
+.form-control {
+  background: transparent;
+  border: 1px solid #ced4da52 !important;
+}
+.form-control:focus {
+  box-shadow: none;
+}

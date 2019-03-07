@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">PelisApp</a>
+<nav class="navbar fixed-top position-absolute navbar-expand-lg navbar-dark navbar-fixed-top" [ngClass]="{'bg-dark': navbarChange, 'bg-change': !navbarChange}">
+    <a class="navbar-brand" href="#">Peli<mark>Today</mark></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,15 +7,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['home']">Home</a>
+                <a class="nav-link" [routerLink]="['home']">Inicio</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['buscar']">Buscar</a>
+                <a class="nav-link" [routerLink]="['buscar']">Buscar Pelicula</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['about']">Acerca de PeliToday</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" (ngSubmit)="buscarPelicula(buscar.value)">
-            <input #buscar class="form-control mr-sm-2" type="search" placeholder="Buscar Pelicula" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            <input #buscar class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
         </form>
     </div>
 </nav>

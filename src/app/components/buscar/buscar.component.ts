@@ -5,11 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-buscar',
   templateUrl: './buscar.component.html',
-  styles: []
+  styleUrls: ['./buscar.component.css']
 })
 export class BuscarComponent implements OnInit {
 
   buscar = '';
+  loading = false;
 
   constructor(public ps: PeliculasService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
@@ -20,14 +21,18 @@ export class BuscarComponent implements OnInit {
     });
    }
 
-  ngOnInit() {
+   ngOnInit() {
   }
 
   buscarPelicula() {
     if (this.buscar.length === 0) {
       return;
     }
+    this.loading = true;
     this.ps.buscarPelicula(this.buscar).subscribe(data => data);
+     setTimeout(() => {
+      this.loading = false;
+     }, 3000);
   }
 
 }

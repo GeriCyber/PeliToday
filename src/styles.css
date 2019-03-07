@@ -1,16 +1,20 @@
 body{
-  padding-bottom: 200px;
+  /* padding-bottom: 150px; */
+  font-family: 'Quicksand', sans-serif;
 }
 
 .main-container{
   margin-top: 40px;
-  margin-bottom: 150px;
+  /* margin-bottom: 150px; */
 }
 
 .puntero{
   cursor: pointer;
 }
 
+.title {
+  letter-spacing: 3px;
+}
 
 .div-pic-1{
   width: 100%;
@@ -68,4 +72,85 @@ body{
 
 .fadeIn {
   animation-name: fadeIn;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+::selection {
+  background-color: #000;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #000;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: #130017;
+}
+
+a:hover {
+  color: #130017;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+mark {
+  background: rgb(16, 255, 223);
+  border-radius: 5px;
+  font-family: 'Caveat', sans-serif;
+  font-weight: 500;
+}
+
+.btn-info {
+  background-color: transparent;
+  border: 1px solid #ffffff54 !important;
+  color: #6bf5e0;
+}
+.btn-info:hover {
+  background: #fff !important;
+  color: #000;
+}
+.btn-info-dark {
+  background-color: #fff;
+  border: 1px solid #000 !important;
+  color: #000;
+}
+.btn-info-dark:hover {
+  background-color: #000;
+  border: 1px solid #000 !important;
+  color: #fff;
+}
+.img-loader {
+  margin-top: 200px;
+  margin-bottom: 150px;
+}
+
+.m-100 {
+  margin-top: 100px !important;
 }

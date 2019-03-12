@@ -1,9 +1,62 @@
-<div class="container-fluid head text-center">
+<div *ngIf="populares" class="container-fluid head text-center" [ngStyle]="{
+    'background-image': 'url(' + pathImg + ')'}">
   <div class="container d-flex flex-column justify-content-center h-100">
-      <h1 class="title">Peli<mark>Today</mark></h1>
+      <h5>Mas <mark>Popular</mark></h5>
+      <h1 class="title" *ngIf="populares">{{populares[0].title}}</h1>
         <div class="row justify-content-center">
           <div class="col-md-7">
-              <p class="text-center py-3 h5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <!--<p class="text-center py-3 h5" *ngIf="populares">{{populares[0].overview | slice:0:200}}</p>-->
+              <div *ngIf="populares">
+                <div class="rating" *ngIf="(populares[0].vote_average | number:'.0-0') == '0'">
+                  <i class="far fa-star" aria-hidden="true"></i><br>
+                  <span>{{populares[0].vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(populares[0].vote_average | number:'.0-0') == '2' || (populares[0].vote_average | number:'.0-0') == '1'">
+                  <i class="fas fa-star-half-alt" aria-hidden="true"></i><br>
+                  <span>{{populares[0].vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(populares[0].vote_average | number:'.0-0') == '4' || (populares[0].vote_average | number:'.0-0') == '3'">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i><br>
+                  <span>{{populares[0].vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(populares[0].vote_average | number:'.0-0') == '5' || (populares[0].vote_average | number:'.0-0') == '6'">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i><br>
+                  <span>{{populares[0].vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(populares[0].vote_average | number:'.0-0') == '7'">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i> <br>
+                    <span>{{populares[0].vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(populares[0].vote_average | number:'.0-0') == '8' || (populares[0].vote_average | number:'.0-0') == '9'">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fas fa-star-half-alt" aria-hidden="true"></i> <br>
+                  <span>{{populares[0].vote_average}}/10</span>
+              </div>
+
+              <div class="rating" *ngIf="(populares[0].vote_average | number:'.0-0') == '10'">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i> <br>
+                <span>{{populares[0].vote_average}}/10</span>
+              </div>
+              </div>
+
               <a class="btn btn-info btn-lg" href="#cartelera">Ver pelis en cartelera</a>
             </div>
         </div>

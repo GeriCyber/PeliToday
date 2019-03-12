@@ -14,14 +14,90 @@
 
     <div class="row my-5" *ngIf="!loading">
         <div class="card-columns">
-            <div class="card" *ngFor="let pelicula of ps.peliculas">
+            <!-- <div class="card" *ngFor="let pelicula of ps.peliculas">
                 <img [src]="pelicula | images" class="card-img-top" [alt]="pelicula.original_title">
                 <div class="card-body">
                     <h5 class="card-title">{{pelicula.original_title}}</h5>
                     <p class="card-text">{{pelicula.overview | slice:0:200}}</p>
                     <button [routerLink]="['/pelicula', pelicula.id, 'buscar', buscar]" class="puntero btn btn-block btn-info-dark">Ver mas</button>
                 </div>
+            </div> -->
+
+
+            <div class="card-expand" *ngFor="let pelicula of ps.peliculas">
+              <div class="poster"><img [src]="pelicula | images" class="" [alt]="pelicula.original_title"></div>
+              <div class="details">
+                <h2><b>{{pelicula.original_title}}</b><br><span>{{pelicula.release_date | date:'MMMM y'}}</span></h2>
+
+                <div class="rating" *ngIf="(pelicula.vote_average | number:'.0-0') == '0'">
+                  <i class="far fa-star" aria-hidden="true"></i>
+                  <span>{{pelicula.vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(pelicula.vote_average | number:'.0-0') == '2' || (pelicula.vote_average | number:'.0-0') == '1'">
+                  <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                  <span>{{pelicula.vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(pelicula.vote_average | number:'.0-0') == '4' || (pelicula.vote_average | number:'.0-0') == '3'">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <span>{{pelicula.vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(pelicula.vote_average | number:'.0-0') == '5' || (pelicula.vote_average | number:'.0-0') == '6'">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <span>{{pelicula.vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(pelicula.vote_average | number:'.0-0') == '7'">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <span>{{pelicula.vote_average}}/10</span>
+                </div>
+
+                <div class="rating" *ngIf="(pelicula.vote_average | number:'.0-0') == '8' || (pelicula.vote_average | number:'.0-0') == '9'">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                  <span>{{pelicula.vote_average}}/10</span>
+              </div>
+
+              <div class="rating" *ngIf="(pelicula.vote_average | number:'.0-0') == '10'">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span>{{pelicula.vote_average}}/10</span>
+              </div>
+
+             <!--
+                 <div class="tags">
+                  <span class="fantasy">Fantasy</span>
+                  <span class="scifi">Sci Fi</span>
+                </div>
+             -->
+
+                <div class="info mb-2" *ngIf="pelicula.overview.length > 0">
+                  <p>{{pelicula.overview | slice:0:170}}...</p>
+                </div>
+
+                <div class="info mb-2" *ngIf="pelicula.overview.length == 0">
+                  <p>Sin descripcion</p>
+                </div>
+
+                <button [routerLink]="['/pelicula', pelicula.id, 'buscar', buscar]" class="puntero btn btn-block btn-info">Ver mas</button>
+
+              </div>
             </div>
+
         </div>
         <!-- <h3 *ngIf="ps.peliculas.length===0">No existen resultados para la busqueda!</h3> -->
     </div>

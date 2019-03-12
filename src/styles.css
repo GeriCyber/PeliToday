@@ -1,6 +1,12 @@
 body{
   /* padding-bottom: 150px; */
   font-family: 'Quicksand', sans-serif;
+  background: #0c0b0b;
+  color: #FFF;
+}
+
+hr {
+  border-color: #4a4a4a;
 }
 
 .main-container{
@@ -86,22 +92,22 @@ body{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #000;
+  background: #6bf5e0;
   border-radius: 2px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #000;
+  background: #6bf5e0;
 }
 
 ::selection {
-  background-color: #000;
+  background-color: #6bf5e0;
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: #000;
+  background-color: #6bf5e0;
   color: #ffffff;
 }
 
@@ -153,4 +159,9 @@ mark {
 
 .m-100 {
   margin-top: 100px !important;
+}
+
+.info-movie {
+  overflow-y: scroll !important;
+  height: 610px !important;
 }

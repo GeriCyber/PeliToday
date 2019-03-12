@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   cartelera: any;
   populares: any;
   kids: any;
+  pathImg: string;
+  url = 'http://image.tmdb.org/t/p/w500/';
 
   constructor(public ps: PeliculasService) {
   }
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
 
     this.ps.getPopulares().subscribe(data => {
       this.populares = data.results;
+      this.pathImg = this.url + this.populares[0].backdrop_path;
     });
 
     this.ps.getKidsPopulares().subscribe(data => {

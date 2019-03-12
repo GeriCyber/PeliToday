@@ -3,18 +3,30 @@
 </div>
 
 <div class="m-100 container main-container animated fadeIn fast my-5" *ngIf="pelicula">
-    <h1 class="my-3">{{pelicula.original_title}}</h1>
+    <h1 class="my-5">{{pelicula.original_title}}</h1>
     <div class="row">
         <div class="col-md-5">
-            <img class="img-thumbnail img-fluid" [src]="pelicula | images:true" [alt]="pelicula.original_title">
+            <img class="img-thumbnail img-fluid" [src]="pelicula | images" [alt]="pelicula.original_title">
         </div>
-        <div class="col-md-7">
-            <h3>Sinopsis</h3>
+        <div class="col-md-7 info-movie">
+            <h3><b>Sinopsis</b></h3>
             <hr>
             <p class="text-justify">
                 {{pelicula.overview}}
             </p>
-            <h4 *ngIf="pelicula.tagline">Frase Celebre</h4>
+            <hr>
+
+            <div class="mb-3">
+                <h3><b>Genero</b></h3>
+                <span *ngFor="let genre of pelicula.genres" class="badge badge-info mr-2">{{genre.name}}</span>
+            </div>
+            <hr>
+            <h3><b>Fecha de estreno</b></h3>
+            <p>
+                {{pelicula.release_date | date:'longDate'}}
+            </p>
+            <hr>
+            <h3 *ngIf="pelicula.tagline"><b>Frase Celebre</b></h3>
             <p *ngIf="pelicula.tagline">
                 {{pelicula.tagline}}
             </p>
@@ -22,7 +34,7 @@
                 Popularidad: <span class="badge badge-success">{{pelicula.popularity | number:'.0-0'}}%</span>
                 <br> Votos promedio: <span class="badge badge-warning">{{pelicula.vote_average}}</span>
             </p>
+            <hr>
             <button [routerLink]="['/'+returnTo, busqueda]" class="puntero btn btn-danger">Regresar</button>
         </div>
-    </div>
 </div>

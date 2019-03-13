@@ -15,7 +15,7 @@ export class ImagesPipe implements PipeTransform {
     } else if (pelicula.backdrop_path) {
       return url + pelicula.backdrop_path;
     } else {
-      return '../assets/no-image.png';
+      return './assets/no-image.png';
     }
   }
 

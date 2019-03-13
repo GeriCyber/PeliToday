@@ -163,5 +163,10 @@ mark {
 
 .info-movie {
   overflow-y: scroll !important;
-  height: 610px !important;
+  height: 610px;
+}
+
+.img-thumbnail {
+  background-color: #0c0b0b !important;
+  border: none !important;
 }

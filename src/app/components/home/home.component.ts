@@ -13,11 +13,14 @@ export class HomeComponent implements OnInit {
   kids: any;
   pathImg: string;
   url = 'http://image.tmdb.org/t/p/w500/';
+  loading: boolean;
 
   constructor(public ps: PeliculasService) {
   }
 
   ngOnInit() {
+
+    this.loading = true;
 
     this.ps.getCartelera().subscribe(data => {
       this.cartelera = data.results;
@@ -31,6 +34,10 @@ export class HomeComponent implements OnInit {
     this.ps.getKidsPopulares().subscribe(data => {
       this.kids = data.results;
     });
+
+    setTimeout(() => {
+      this.loading = false;
+     }, 500);
   }
 
 }

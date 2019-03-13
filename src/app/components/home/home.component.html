@@ -1,4 +1,9 @@
-<div *ngIf="populares" class="container-fluid head text-center" [ngStyle]="{
+<div class="container-fluid d-flex justify-content-center align-items-center" *ngIf="loading">
+    <img class="img-loader" src="./assets/loading.gif" >
+</div>
+
+<div *ngIf="!loading">
+  <div *ngIf="populares" class="container-fluid head text-center" [ngStyle]="{
     'background-image': 'url(' + pathImg + ')'}">
   <div class="container d-flex flex-column justify-content-center h-100">
       <h5>Mas <mark>Popular</mark></h5>
@@ -61,13 +66,13 @@
             </div>
         </div>
       </div>
+  </div>
+
+  <div class="container mb-5">
+      <br>
+      <app-galeria id="cartelera" [peliculas]="cartelera | slice:0:6" titulo="Peliculas en cartelera"></app-galeria>
+      <app-galeria [peliculas]="populares | slice:0:6" titulo="Peliculas populares"></app-galeria>
+      <app-galeria [peliculas]="kids | slice:0:6" titulo="Peliculas populares para niños"></app-galeria>
+
+  </div>
 </div>
-
-<div class="container mb-5">
-    <br>
-    <app-galeria id="cartelera" [peliculas]="cartelera | slice:0:6" titulo="Peliculas en cartelera"></app-galeria>
-    <app-galeria [peliculas]="populares | slice:0:6" titulo="Peliculas populares"></app-galeria>
-    <app-galeria [peliculas]="kids | slice:0:6" titulo="Peliculas populares para niños"></app-galeria>
-
-</div>
-

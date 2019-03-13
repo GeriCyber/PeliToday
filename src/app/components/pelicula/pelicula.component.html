@@ -8,24 +8,24 @@
         <div class="col-md-5">
             <img class="img-thumbnail img-fluid" [src]="pelicula | images" [alt]="pelicula.original_title">
         </div>
-        <div class="col-md-7 info-movie">
-            <h3><b>Sinopsis</b></h3>
-            <hr>
-            <p class="text-justify">
+        <div class="col-md-7" [ngClass]="{'info-movie': pelicula.overview.length>0}">
+            <h3 *ngIf="pelicula.overview" ><b>Sinopsis</b></h3>
+            <hr *ngIf="pelicula.overview">
+            <p *ngIf="pelicula.overview" class="text-justify">
                 {{pelicula.overview}}
             </p>
             <hr>
 
-            <div class="mb-3">
+            <div class="mb-3" *ngIf="pelicula.genre">
                 <h3><b>Genero</b></h3>
                 <span *ngFor="let genre of pelicula.genres" class="badge badge-info mr-2">{{genre.name}}</span>
             </div>
-            <hr>
-            <h3><b>Fecha de estreno</b></h3>
-            <p>
+            <hr *ngIf="pelicula.genre"> 
+            <h3 *ngIf="pelicula.release_date"><b>Fecha de estreno</b></h3>
+            <p *ngIf="pelicula.release_date">
                 {{pelicula.release_date | date:'longDate'}}
             </p>
-            <hr>
+            <hr *ngIf="pelicula.date">
             <h3 *ngIf="pelicula.tagline"><b>Frase Celebre</b></h3>
             <p *ngIf="pelicula.tagline">
                 {{pelicula.tagline}}

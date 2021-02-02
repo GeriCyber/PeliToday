@@ -1,3 +1,3 @@
 # PeliToday
 
-[http://localhost:4200/#/home](http://localhost:4200/#/home)
+[https://gericyber.github.io/PeliToday](https://gericyber.github.io/PeliToday)

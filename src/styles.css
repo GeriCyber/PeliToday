@@ -10,7 +10,6 @@ hr {
 }
 
 .main-container{
-  margin-top: 40px;
   /* margin-bottom: 150px; */
 }
 
@@ -81,12 +80,12 @@ hr {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
+  box-shadow: inset 0 0 2px grey;
   border-radius: 2px;
 }
 
@@ -133,15 +132,12 @@ mark {
   font-weight: 500;
 }
 
-.btn-info {
-  background-color: transparent;
+.btn-info, .btn-info:hover {
+  background-color: transparent !important;
   border: 1px solid #ffffff54 !important;
-  color: #6bf5e0;
+  color: #6bf5e0 !important;
 }
-.btn-info:hover {
-  background: #fff !important;
-  color: #000;
-}
+
 .btn-info-dark {
   background-color: #fff;
   border: 1px solid #000 !important;

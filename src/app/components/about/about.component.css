@@ -1,3 +1,8 @@
 .section-about {
   margin-top: 150px;
 }
+
+.themdb-link {
+  color: rgb(16, 255, 223);
+  font-size: 16px;
+}

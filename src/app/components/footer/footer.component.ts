@@ -1,25 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   fixedFooter: boolean;
+  year = new Date().getFullYear();
 
-  constructor(private router: Router) {
-    this.router.events.subscribe((url: any) => {
-      if (this.router.url === '/buscar') {
-        this.fixedFooter = true;
-      } else {
-        this.fixedFooter = false;
-      }
-    });
-  }
-
-  ngOnInit() {
-  }
+  constructor() {}
 
 }

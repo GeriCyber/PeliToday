@@ -1,40 +1,50 @@
-<div class="container-fluid d-flex justify-content-center align-items-center" *ngIf="!pelicula">
-    <img class="img-loader" src="./assets/loading.gif" >
+<div
+  class="container-fluid d-flex justify-content-center align-items-center"
+  *ngIf="loading">
+    <img class="img-loader" src="./assets/loading.svg" >
 </div>
 
-<div class="m-100 container main-container animated fadeIn fast my-5" *ngIf="pelicula">
-    <h1 class="my-5">{{pelicula.original_title}}</h1>
+<div
+  class="m-100 container main-container animated fadeIn fast my-5"
+  *ngIf="movie">
+    <h1 class="my-5">{{movie.original_title}}</h1>
     <div class="row">
         <div class="col-md-5">
-            <img class="img-thumbnail img-fluid" [src]="pelicula | images" [alt]="pelicula.original_title">
+            <img class="img-thumbnail img-fluid" [src]="movie | images" [alt]="movie.original_title">
         </div>
-        <div class="col-md-7" [ngClass]="{'info-movie': pelicula.overview.length>0}">
-            <h3 *ngIf="pelicula.overview" ><b>Sinopsis</b></h3>
-            <hr *ngIf="pelicula.overview">
-            <p *ngIf="pelicula.overview" class="text-justify">
-                {{pelicula.overview}}
+        <div
+          class="col-md-7"
+          [ngClass]="{'info-movie': movie.overview.length>0}">
+            <h3 *ngIf="movie.overview" ><b>Sinopsis</b></h3>
+            <hr *ngIf="movie.overview">
+            <p *ngIf="movie.overview" class="text-justify">
+                {{movie.overview}}
             </p>
             <hr>
 
-            <div class="mb-3" *ngIf="pelicula.genre">
-                <h3><b>Genero</b></h3>
-                <span *ngFor="let genre of pelicula.genres" class="badge badge-info mr-2">{{genre.name}}</span>
+            <div
+              class="mb-3"
+              *ngIf="movie.genres && movie.genres.length > 0">
+                <h3><b>Género</b></h3>
+                <span *ngFor="let genre of movie.genres" class="badge badge-info mr-2">{{genre.name}}</span>
             </div>
-            <hr *ngIf="pelicula.genre"> 
-            <h3 *ngIf="pelicula.release_date"><b>Fecha de estreno</b></h3>
-            <p *ngIf="pelicula.release_date">
-                {{pelicula.release_date | date:'longDate'}}
+            <hr *ngIf="movie.genres && movie.genres.length > 0"> 
+
+            <h3 *ngIf="movie.release_date"><b>Fecha de estreno</b></h3>
+            <p *ngIf="movie.release_date">
+                {{movie.release_date | date:'longDate'}}
             </p>
-            <hr *ngIf="pelicula.date">
-            <h3 *ngIf="pelicula.tagline"><b>Frase Celebre</b></h3>
-            <p *ngIf="pelicula.tagline">
-                {{pelicula.tagline}}
+            <hr *ngIf="movie.release_date">
+
+            <h3 *ngIf="movie.tagline"><b>Frase Celebre</b></h3>
+            <p *ngIf="movie.tagline">
+                {{movie.tagline}}
             </p>
             <p class="mb-3">
-                Popularidad: <span class="badge badge-success">{{pelicula.popularity | number:'.0-0'}}%</span>
-                <br> Votos promedio: <span class="badge badge-warning">{{pelicula.vote_average}}</span>
+                Popularidad: <span class="badge badge-success">{{movie.popularity | number:'.0-0'}}%</span>
+                <br> Votos promedio: <span class="badge badge-warning">{{movie.vote_average}}</span>
             </p>
             <hr>
-            <button [routerLink]="['/'+returnTo, busqueda]" class="puntero btn btn-danger">Regresar</button>
+            <button [routerLink]="['/'+returnTo, search]" class="puntero btn btn-light">Regresar</button>
         </div>
 </div>

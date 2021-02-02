@@ -23,3 +23,9 @@
 .form-control:focus {
   box-shadow: none;
 }
+
+@media only screen and (max-width: 720px) {
+  .bg-dark {
+    background-color: #000 !important;
+  }
+}

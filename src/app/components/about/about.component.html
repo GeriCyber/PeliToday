@@ -1,28 +1,26 @@
-<div class="container-fluid h-100 d-flex justify-content-center align-items-center"
-    *ngIf="loading">
-  <img class="img-loader" src="./assets/loading.gif" >
-</div>
-
-<div class="section-about" *ngIf="!loading">
+<div class="section-about fadeIn fast">
   <div class="container">
     <div class="row app-align-center">
 
-      <div class="col-sm-5 hidden-sm-down">
-        <img src="./assets/popcorn.jpg" width="450">
+      <div class="col-sm-5 hidden-sm-down d-flex align-items-center">
+        <img src="./assets/the-movie-db.png" width="100%">
       </div>
 
-      <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0">
-        <h6 class="text-muted text-uppercase">Lorem Ipsum</h6>
-        <h3>Make informed decisions with historical &amp; real time data.</h3>
-        <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, tenetur velit ex adipisci eaque vero natus dolorum facilis, consectetur dolor tempore voluptas inventore modi, temporibus soluta ullam pariatur molestias labore.</p>
+      <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0 mt-2">
+        <h5><mark>PeliToday</mark></h5>
+        <h3>Esta web cosume servicios de la API </h3>
+        <a class="themdb-link" href="https://www.themoviedb.org">https://www.themoviedb.org</a>
+        <p><a target="_blank" class="text-white" href="https://developers.themoviedb.org/3/getting-started/introduction">Documentación de la API</a></p>
+        <p>Repositorio de PeliToday 
+          <a class="themdb-link" target="_blank" href="https://github.com/GeriCyber/PeliToday">https://github.com/GeriCyber/PeliToday</a>
+        </p>
+        <p class="lead mb-4 mt-2">Hecho con </p>
         <div class="row hidden-md-down">
-          <div class="col-sm-6 mb-3">
-            <h5>Data frequency</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur.</p>
+          <div class="col-sm-6 mb-3 d-flex align-items-center justify-content-center">
+            <img src="./assets/angular.svg" width="60%">
           </div>
-          <div class="col-sm-6">
-            <h5>Reliability &amp; uptime</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur.</p>
+          <div class="col-sm-6 d-flex align-items-center justify-content-center">
+            <img src="./assets/bootstrap.png" width="45%">
           </div>
         </div>
       </div>

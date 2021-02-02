@@ -3,29 +3,30 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label class="mt-5 h3">Buscar</label>
-                <input class="form-control" type="text" name="buscar" placeholder="Buscar pelicula" [(ngModel)]="buscar" (keyup.enter)="buscarPelicula()">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="buscar"
+                  placeholder="Buscar película"
+                  [(ngModel)]="buscar"
+                  (keyup.enter)="buscarPelicula()">
             </div>
         </div>
     </div>
 
-    <div class="container-fluid d-flex justify-content-center align-items-center" *ngIf="loading">
-        <img class="img-loader" src="./assets/loading.gif" >
+    <div
+      class="container-fluid d-flex justify-content-center align-items-center"
+      *ngIf="loading">
+        <img class="img-loader" src="./assets/loading.svg" >
     </div>
 
     <div class="row my-5" *ngIf="!loading">
         <div class="card-columns">
-            <!-- <div class="card" *ngFor="let pelicula of ps.peliculas">
-                <img [src]="pelicula | images" class="card-img-top" [alt]="pelicula.original_title">
-                <div class="card-body">
-                    <h5 class="card-title">{{pelicula.original_title}}</h5>
-                    <p class="card-text">{{pelicula.overview | slice:0:200}}</p>
-                    <button [routerLink]="['/pelicula', pelicula.id, 'buscar', buscar]" class="puntero btn btn-block btn-info-dark">Ver mas</button>
-                </div>
-            </div> -->
 
-
-            <div class="card-expand" *ngFor="let pelicula of ps.peliculas">
-              <div class="poster"><img [src]="pelicula | images" class="" [alt]="pelicula.original_title"></div>
+            <div
+              class="card-expand"
+              *ngFor="let pelicula of movies">
+              <div class="poster"><img [src]="pelicula | images" [alt]="pelicula.original_title"></div>
               <div class="details">
                 <h2><b>{{pelicula.original_title}}</b><br><span>{{pelicula.release_date | date:'MMMM y'}}</span></h2>
 
@@ -78,27 +79,26 @@
                 <span>{{pelicula.vote_average}}/10</span>
               </div>
 
-             <!--
-                 <div class="tags">
-                  <span class="fantasy">Fantasy</span>
-                  <span class="scifi">Sci Fi</span>
-                </div>
-             -->
-
                 <div class="info mb-2" *ngIf="pelicula.overview.length > 0">
                   <p>{{pelicula.overview | slice:0:170}}...</p>
                 </div>
 
                 <div class="info mb-2" *ngIf="pelicula.overview.length == 0">
-                  <p>Sin descripcion</p>
+                  <p>Sin descripción</p>
                 </div>
 
-                <button [routerLink]="['/pelicula', pelicula.id, 'buscar', buscar]" class="puntero btn btn-block btn-info">Ver mas</button>
-
+                <button
+                  [routerLink]="['/pelicula', pelicula.id, 'buscar', buscar]"
+                  class="puntero btn btn-block btn-info">Ver más</button>
               </div>
             </div>
 
         </div>
-        <!-- <h3 *ngIf="ps.peliculas.length===0">No existen resultados para la busqueda!</h3> -->
+        <h3 *ngIf="movies.length === 0 && !error && noMoviesMatch">No existen resultados para la búsqueda!</h3>
+        <div class="row w-100 justify-content-center">
+          <div class="row" *ngIf="error">
+            <button (click)="buscarPelicula()" class="puntero btn btn-block btn-info">Reintentar búsqueda</button>
+          </div>
+        </div>
     </div>
   </div>

@@ -8,15 +8,11 @@
 
 
 .card-expand {
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%; */
   transform: translate(0%);
   background: #000;
   overflow: hidden;
   box-shadow: 0 5px 10px rgba(0,0,0, 0.5);
-  /* width: 300px; */
-  height: 450px;
+  height: 540px;
   margin-bottom: 20px;
 }
 
@@ -43,7 +39,6 @@
 
 .card-expand .poster img {
   width: 100%;
-  transition: 0.5s;
 }
 
 .card-expand:hover .poster img {

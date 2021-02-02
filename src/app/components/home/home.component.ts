@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  @ViewChild('cartelera', { read: ElementRef, static: false })
+  @ViewChild('cartelera', { read: ElementRef })
   cartelera: ElementRef;
   nowPlayingMovies: Movie[] = [];
   popularMovies: Movie[] = [];
